@@ -37,6 +37,44 @@
  - static
  - temp
  - pointer
+
+### Local segment
+
+High level operations on *local* variables are translated into VM operations
+on the entries of the segment *local*
+
+### Arguments segment
+
+High level operations on *argument* variables are translated into VM operations
+on the entries of the segment *argument*
+
+### This segment
+
+High level operations on the *field* variables of the current object are translated
+into VM operations on the entries of the segment *this*
+
+### That segment
+
+High level operations on *array entries* are translated into VM operations on the
+entries of the segment *that*
+ 
+### Constant segment 
+
+High level operations on the *constant i* are translated into VM operations on the 
+segment entry *constant i*
+ 
+### Static segment
+
+High level operations on *static* variables are translated into VM operations
+on entries of the segment *static* 
+ 
+### Temp segment
+
+A memory segment for compiler working variables. 
+ 
+### Pointer segment
+
+A memory segment for storing the base addresses of the segments *this* and *that*
  
 #### push/pop local/argument/this/that 
    `push segment i` -> `addr = segmentPointer + i, *SP = *addr, SP++`
